@@ -16,11 +16,11 @@ const productCollection = collection(db, "products");
 export const getProducts = async (filterCategory = "", sortRating = "") => {
   let q = productCollection;
 
-  // Check if only filterCategory is provided
+  // if filterCategory is provided
   if (filterCategory) {
     q = query(productCollection, where("category", "==", filterCategory));
   }
-  // Check if only sortRating is provided
+  // if sortRating is provided
   else if (sortRating) {
     q = query(
       productCollection,
